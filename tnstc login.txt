@@ -1,0 +1,21 @@
+package formPackage;
+import org.openqa.selenium.By;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.WebElement;
+import java.util.concurrent.TimeUnit;
+
+
+public class TnstcLogin {
+	public static void main(String[] args) {
+	System.setProperty("webdriver.chrome.driver","C:\\Program Files\\Java\\Chrome driver\\chromedriver.exe");
+	ChromeDriver driver = new ChromeDriver();
+	driver.manage().window().maximize();
+	driver.get("https://www.tnstc.in/TNSTCOnline/jqreq.do?hiddenAction=Login");
+	driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+	driver.findElement(By.name("txtUserLoginID")).sendKeys("Selenium123");
+			driver.findElement(By.name("txtPassword")).sendKeys("java123");
+	WebElement sub =driver.findElement(By.xpath("//a[text()='Reset']"));
+	sub.click();
+	driver.close();
+	}
+}
